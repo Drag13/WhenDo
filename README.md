@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/Drag13/WhenDo/badge.svg?branch=coverage)](https://coveralls.io/github/Drag13/WhenDo?branch=coverage)
+[![Build Status](https://travis-ci.org/Drag13/WhenDo.svg?branch=dev)](https://travis-ci.org/Drag13/WhenDo)
 [![Coverage Status](https://coveralls.io/repos/github/Drag13/WhenDo/badge.svg?branch=coverage)](https://coveralls.io/github/Drag13/WhenDo?branch=coverage)
 
 # WhenDo

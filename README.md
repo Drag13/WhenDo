@@ -14,21 +14,21 @@
 
 ``` javascript
 const wd = require('@drag13/when-do');
-const myComposedFunction = wd(5===5, ()=> console.log('i am true'));
+const myComposedFunction = wd(()=> true, ()=> console.log('i am true'));
 myComposedFunction();
 ```
 
-Output should be `i am true`
+Output should be i am true
 
-Also you can pass a parameters that will be send to the handler.
+Also you can pass a parameters that will be send to the handler`
 
 ``` javascript
 const wd = require('@drag13/when-do');
-const myComposedFunction = wd(5===5, (name)=> console.log(`hello {name}`));
+const myComposedFunction = wd(()=>true, (name)=> console.log(`hello {name}`));
 myComposedFunction('mate');
 ```
 
-Output should be `hello mate`
+Output should be hello mate
 
 ## Tests
 
@@ -36,10 +36,8 @@ Output should be `hello mate`
 
 ## Future plans
 
-0.2 Add supporting function as predicate.
-0.2.1 More tests
-0.2.2 Better JSDoc
-0.2.3 More badges
+0.2 Add supporting function as predicate (done)
+0.2.1 More badges
 
 ...
 
@@ -48,4 +46,4 @@ Output should be `hello mate`
 ## Contributing
 
 Any bug fixing appreciated.
-If you want to add new functionality - welcome. But keep this as tiny as possible.
+If you want to add new functionality - welcome. But KISS it please.

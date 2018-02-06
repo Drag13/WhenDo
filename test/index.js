@@ -40,13 +40,13 @@ describe('if predicate', () => {
             });
 
             it('is not a function, nothing should fail', () => {
-                const ifthen = whendo(true, null, falseAction)();
-                expect(true).to.be.true;
+                const ifthen = whendo(true, null, falseAction);
+                expect(ifthen()).expect.to.throw(new Error(`const trueActionIsNotAFunctionError = ${typeof undefined}`));
             });
         });
     });
 
-    describe('is false', ()=> {
+    describe('is false', () => {
         describe('and falseAction', () => {
             it('is function, it should be called', () => {
                 const ifthen = whendo(false, trueAction, falseAction)();
@@ -63,6 +63,45 @@ describe('if predicate', () => {
                 expect(true).to.be.true;
             });
         });
-    })
+    });
 
+    describe('is function that returns true', () => {
+        const fpredicate = () => true;
+        describe('and trueAction', () => {
+            it('is function, true action should be called', () => {
+                const ifthen = whendo(fpredicate, trueAction, falseAction)();
+                expect(trueAction).to.have.been.called();
+            });
+
+            it('is function, true action should be called with passed param', () => {
+                const ifthen = whendo(fpredicate, trueAction, falseAction)('test');
+                expect(trueAction).to.have.been.called.with('test');
+            });
+
+            it('is not a function, nothing should fail', () => {
+                const ifthen = whendo(fpredicate, null, falseAction)();
+                expect(true).to.be.true;
+            });
+        });
+    });
+
+    describe('is function that reurns false', () => {
+        const fpredicate = () => false;
+        describe('and falseAction', () => {
+            it('is function, it should be called', () => {
+                const ifthen = whendo(fpredicate, trueAction, falseAction)();
+                expect(falseAction).to.have.been.called();
+            });
+
+            it('is function, it should be called with selected param', () => {
+                const ifthen = whendo(fpredicate, trueAction, falseAction)('test');
+                expect(falseAction).to.have.been.called.with('test');
+            });
+
+            it('is not a function, nothing should fail', () => {
+                const ifthen = whendo(fpredicate, trueAction, null)();
+                expect(true).to.be.true;
+            });
+        });
+    });
 });

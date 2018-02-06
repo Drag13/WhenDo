@@ -20,7 +20,7 @@ myComposedFunction();
 
 Output should be `i am true`
 
-Also you can use pass a parameters that will be send to the handler.
+Also you can pass a parameters that will be send to the handler.
 
 ``` javascript
 const wd = require('@drag13/when-do');
@@ -37,7 +37,15 @@ Output should be `hello mate`
 ## Future plans
 
 0.2 Add supporting function as predicate.
+0.2.1 More tests
+0.2.2 Better JSDoc
+0.2.3 More badges
+
+...
+
+1.0.0 Release.
 
 ## Contributing
 
 Any bug fixing appreciated.
+If you want to add new functionality - welcome. But keep this as tiny as possible.

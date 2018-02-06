@@ -96,6 +96,7 @@ describe('if predicate', () => {
             });
 
             it('is not a function, nothing should fails', () => {
+                whendo(false, trueAction, null)();
                 expect(whendo.bind(context, false, trueAction, null)).not.to.throw();
             });
         });

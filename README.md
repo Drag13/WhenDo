@@ -12,22 +12,23 @@
 
 ## Usage
 
-    ``` javascript
-    const wd = require('@drag13/when-do');
-    const myComposedFunction = wd(5===5, ()=> consolse.log('i am true'));
-    myComposedFunction();
-    ```
+``` javascript
+const wd = require('@drag13/when-do');
+const myComposedFunction = wd(5===5, ()=> console.log('i am true'));
+myComposedFunction();
+```
 
-    Output should be `i am true`
+Output should be `i am true`
 
-    Also you can use pass a parameters that will be send to the handler.
+Also you can use pass a parameters that will be send to the handler.
 
-    ``` javascript
-    const wd = require('@drag13/when-do');
-    const myComposedFunction = wd(5===5, (name)=> consolse.log(`hello {name}`));
-    myComposedFunction('mate');
-    ```
-    Output should be `hello mate`
+``` javascript
+const wd = require('@drag13/when-do');
+const myComposedFunction = wd(5===5, (name)=> console.log(`hello {name}`));
+myComposedFunction('mate');
+```
+
+Output should be `hello mate`
 
 ## Tests
 

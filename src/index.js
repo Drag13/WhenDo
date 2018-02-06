@@ -4,8 +4,6 @@
 
 'use strict';
 
-const trueActionIsNotAFunctionError = 'Expected function but got ';
-
 /**
  * compose predicate and if else functions to the new function
  * @param {(function|boolean)} predicate - function or anything else that can be treated as bool.

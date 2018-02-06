@@ -13,12 +13,12 @@ describe('whenDo function', () => {
     });
 
     it('should return function', () => {
-        expect(whendo()).to.be.an('function');
+        expect(whendo(true, function () { })).to.be.an('function');
     });
 });
 
 describe('if predicate', () => {
-    const spy = chai.spy;
+    const spy = chai.spy, context = {};
     let trueAction, falseAction;
 
     beforeEach(() => {
@@ -39,9 +39,8 @@ describe('if predicate', () => {
                 expect(trueAction).to.have.been.called.with('test');
             });
 
-            it('is not a function, nothing should fail', () => {
-                const ifthen = whendo(true, null, falseAction);
-                expect(ifthen()).expect.to.throw(new Error(`const trueActionIsNotAFunctionError = ${typeof undefined}`));
+            it('is not a function, exception should be thrown', () => {
+                expect(whendo.bind(context, true, true, falseAction)).to.throw();
             });
         });
     });
@@ -59,8 +58,7 @@ describe('if predicate', () => {
             });
 
             it('is not a function, nothing should fail', () => {
-                const ifthen = whendo(false, trueAction, null)();
-                expect(true).to.be.true;
+                expect(whendo.bind(context, false, trueAction, null)).not.to.throw();
             });
         });
     });
@@ -78,9 +76,8 @@ describe('if predicate', () => {
                 expect(trueAction).to.have.been.called.with('test');
             });
 
-            it('is not a function, nothing should fail', () => {
-                const ifthen = whendo(fpredicate, null, falseAction)();
-                expect(true).to.be.true;
+            it('is not a function, exception should be thrown', () => {
+                expect(whendo.bind(context, true, true, falseAction)).to.throw();
             });
         });
     });
@@ -98,9 +95,8 @@ describe('if predicate', () => {
                 expect(falseAction).to.have.been.called.with('test');
             });
 
-            it('is not a function, nothing should fail', () => {
-                const ifthen = whendo(fpredicate, trueAction, null)();
-                expect(true).to.be.true;
+            it('is not a function, nothing should fails', () => {
+                expect(whendo.bind(context, false, trueAction, null)).not.to.throw();
             });
         });
     });

@@ -15,7 +15,7 @@ describe('if predicate', () => {
 
     describe('is false', () => {
         const predicate = false,
-            param = 'test';;
+            param = 'test';
 
         it('and false handler is function, false branch should be executed with passed params', () => {
             wd(predicate, trueAction, falseAction)(param);

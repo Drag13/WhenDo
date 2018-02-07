@@ -7,23 +7,21 @@
 /**
  * compose predicate and if else functions to the new function
  * @param {(function|boolean)} predicate - function or anything else that can be treated as bool.
- * @param {function} trueAction  - function called if predicate returns true
+ * @param {function} [trueAction]  - function called if predicate returns true
  * @param {function} [elseAction] - function called if predicate returns false 
  * @returns {*}
  */
 function whenDo(predicate, trueAction, elseAction) {
-    if (!isFunction(trueAction)) {
-        throw new Error(`trueAction expected as function but got ${typeof predicate}`);
+    if (!isFunction(trueAction) && !isFunction(elseAction)) {
+        throw `Expected trueAction or elseAction as function but found ${typeof trueAction}, ${typeof elseAction}`;
     }
 
+    const fpredicate = isFunction(predicate) ? predicate : () => !!predicate,
+        fTrueAction = asFunc(trueAction),
+        fElseAction = asFunc(elseAction);
+
     return function ifThenElse() {
-        const predicateResult = isFunction(predicate) ? predicate() : !!predicate
-
-        if (predicateResult) {
-            return trueAction.apply(null, [...arguments]);
-        }
-
-        return isFunction(elseAction) ? elseAction.apply(null, [...arguments]) : null;
+        return fpredicate() ? fTrueAction.apply(null, [...arguments]) : fElseAction.apply(null, [...arguments]);
     }
 }
 
@@ -33,6 +31,10 @@ function whenDo(predicate, trueAction, elseAction) {
  */
 function isFunction(func) {
     return typeof func === 'function';
+}
+
+function asFunc(func) {
+    return isFunction(func) ? func : () => null;
 }
 
 module.exports = whenDo;

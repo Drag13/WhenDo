@@ -16,12 +16,15 @@ function whenDo(predicate, trueAction, elseAction) {
         throw `Expected trueAction or elseAction as function but found ${typeof trueAction}, ${typeof elseAction}`;
     }
 
-    const fpredicate = isFunction(predicate) ? predicate : () => !!predicate,
-        fTrueAction = asFunc(trueAction),
+    const fTrueAction = asFunc(trueAction),
         fElseAction = asFunc(elseAction);
 
+    if (!isFunction(predicate)) {
+        return predicate ? fTrueAction : fElseAction;
+    }
+
     return function ifThenElse() {
-        return fpredicate() ? fTrueAction.apply(null, [...arguments]) : fElseAction.apply(null, [...arguments]);
+        return predicate() ? fTrueAction.apply(null, [...arguments]) : fElseAction.apply(null, [...arguments]);
     }
 }
 

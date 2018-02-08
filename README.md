@@ -1,10 +1,11 @@
 # WhenDo
 
-  Small function that can be used instead if-then statement in functional style programming with JavaScript
-  Takes predicate and one or two handlers. Returns new function that will check predicate and execute true/false handler.
-
 [![Build Status](https://travis-ci.org/Drag13/WhenDo.svg?branch=dev)](https://travis-ci.org/Drag13/WhenDo)
 [![Coverage Status](https://coveralls.io/repos/github/Drag13/WhenDo/badge.svg?branch=coverage)](https://coveralls.io/github/Drag13/WhenDo?branch=coverage)
+
+## Description
+Small function that can be used instead if-then statement in functional style programming with JavaScript
+Takes predicate and one or two handlers. Returns new function that will check predicate and execute true/false handler.
 
 ## Installation
 
@@ -14,7 +15,7 @@
 
 ``` javascript
 const wd = require('@drag13/when-do');
-const myComposedFunction = wd(()=> true, ()=> console.log('i am true'));
+const myComposedFunction = wd(() => true, () => console.log('i am true'));
 myComposedFunction();
 ```
 
@@ -24,11 +25,19 @@ Also you can pass a parameters that will be send to the handler`
 
 ``` javascript
 const wd = require('@drag13/when-do');
-const myComposedFunction = wd(()=>true, (name)=> console.log(`hello {name}`));
+const myComposedFunction = wd(() => true, (name) => console.log(`hello ${name}`));
 myComposedFunction('mate');
 ```
 
 Output should be hello mate
+
+
+If your function returns anything, this will be also returned. If you don't provide function to executed branch - null will be returned.
+``` javascript
+const wd = require('@drag13/when-do');
+const myComposedFunction = wd(() => true, (name) => `hello ${name}`);
+console.assert(myComposedFunction('mate') === 'hello mate');
+```
 
 ## Tests
 
@@ -37,7 +46,9 @@ Output should be hello mate
 ## Future plans
 
 0.2 Add supporting function as predicate (done)
-0.2.1 More badges
+0.3 Optimization 
+0.4 AMD support
+0.5 Documentation
 
 ...
 

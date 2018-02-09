@@ -6,11 +6,14 @@ const chai = require('chai'),
 chai.use(spies);
 
 describe('if predicate', () => {
+    const trueActionResult = 'trueActionResulu',
+        falseActionResult = 'falseActionResult';
+        
     let trueAction, falseAction;
 
     beforeEach(() => {
-        trueAction = chai.spy(() => true);
-        falseAction = chai.spy(() => false);
+        trueAction = chai.spy(() => trueActionResult);
+        falseAction = chai.spy(() => falseActionResult);
     });
 
     describe('is true', () => {
@@ -18,9 +21,10 @@ describe('if predicate', () => {
             param = 'test';
 
         it('and true handler is function, true branch should be executed with passed params', () => {
-            wd(predicate, trueAction, falseAction)(param);
+            const result = wd(predicate, trueAction, falseAction)(param);
 
             expect(trueAction).to.have.been.called.with(param);
+            expect(result).equals(trueActionResult);
             expect(falseAction).to.not.have.been.called();
         });
 
@@ -37,9 +41,10 @@ describe('if predicate', () => {
             param = 'test';
 
         it('and true handler is function, true branch should be executed with passed params', () => {
-            wd(predicate, trueAction, falseAction)(param);
+            const result = wd(predicate, trueAction, falseAction)(param);
 
             expect(trueAction).to.have.been.called.with(param);
+            expect(result).equals(trueActionResult);
             expect(falseAction).to.not.have.been.called();
         });
 

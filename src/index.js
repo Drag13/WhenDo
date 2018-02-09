@@ -9,7 +9,7 @@
  * @param {(function|boolean)} predicate - function or anything else that can be treated as bool.
  * @param {function} [trueAction]  - function called if predicate returns true
  * @param {function} [elseAction] - function called if predicate returns false 
- * @returns {*}
+ * @returns {function} - composed function that is save to call.
  */
 function whenDo(predicate, trueAction, elseAction) {
     if (!isFunction(trueAction) && !isFunction(elseAction)) {
@@ -28,7 +28,7 @@ function whenDo(predicate, trueAction, elseAction) {
     }
 }
 
-/**
+/** Check if items is function
  * @param {*} func
  * @returns {boolean} 
  */
@@ -36,6 +36,10 @@ function isFunction(func) {
     return typeof func === 'function';
 }
 
+/** Transform item to function
+ * @param {*} func
+ * @returns {function} 
+ */
 function asFunc(func) {
     return isFunction(func) ? func : () => null;
 }

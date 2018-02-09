@@ -6,11 +6,14 @@ const chai = require('chai'),
 chai.use(spies);
 
 describe('if predicate', () => {
+    const trueActionResult = 'trueActionResulu',
+        falseActionResult = 'falseActionResult';
+
     let trueAction, falseAction;
 
     beforeEach(() => {
-        trueAction = chai.spy(() => true);
-        falseAction = chai.spy(() => false);
+        trueAction = chai.spy(() => trueActionResult);
+        falseAction = chai.spy(() => falseActionResult);
     });
 
     describe('is false', () => {
@@ -18,10 +21,11 @@ describe('if predicate', () => {
             param = 'test';
 
         it('and false handler is function, false branch should be executed with passed params', () => {
-            wd(predicate, trueAction, falseAction)(param);
+            const result = wd(predicate, trueAction, falseAction)(param);
 
             expect(trueAction).to.not.have.been.called()
             expect(falseAction).to.have.been.called.with(param);
+            expect(result).equals(falseActionResult);
         });
 
         it('and false handler is not a function, result should be null', () => {
@@ -37,10 +41,11 @@ describe('if predicate', () => {
             param = 'test';
 
         it('and false handler is function, false branch should be executed with passed params', () => {
-            wd(predicate, trueAction, falseAction)(param);
+            const result = wd(predicate, trueAction, falseAction)(param);
 
             expect(trueAction).to.not.have.been.called()
             expect(falseAction).to.have.been.called.with(param);
+            expect(result).equals(falseActionResult);
         });
 
         it('and false handler is not a function, result should be null', () => {

@@ -1,9 +1,10 @@
-export default whenDo;
+declare namespace WhenDo {
 
-interface whenDo<TResult> {
-    (predicate: (() => Boolean) | Boolean, trueAction?: handler<TResult>, elseAction?: handler<TResult>): handler<TResult>
-}
+    export interface whenDo<TResult> {
+        (predicate: (() => Boolean) | Boolean, trueAction?: handler<TResult>, elseAction?: handler<TResult>): handler<TResult>
+    }
 
-interface handler<TResult> {
-    (...args: any[]): TResult
+    interface handler<TResult> {
+        (...args: any[]): TResult
+    }
 }

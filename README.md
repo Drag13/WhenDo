@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Drag13/WhenDo.svg?branch=dev)](https://travis-ci.org/Drag13/WhenDo)
 [![Coverage Status](https://coveralls.io/repos/github/Drag13/WhenDo/badge.svg?branch=coverage)](https://coveralls.io/github/Drag13/WhenDo?branch=coverage)
-[![npm](https://img.shields.io/npm/dt/express.svg)]()
+[![npm](https://img.shields.io/npm/dt/WhenDo.svg)](https://github.com/Drag13/WhenDo)
+[![GitHub license](https://img.shields.io/github/license/Drag13/WhenDo.svg?style=plastic)](https://github.com/Drag13/WhenDo/blob/master/LICENSE)
 
 ## Description
 

@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Drag13/WhenDo.svg?branch=dev)](https://travis-ci.org/Drag13/WhenDo)
 [![Coverage Status](https://coveralls.io/repos/github/Drag13/WhenDo/badge.svg?branch=coverage)](https://coveralls.io/github/Drag13/WhenDo?branch=coverage)
+[![npm](https://img.shields.io/npm/dt/express.svg)]()
 
 ## Description
 
@@ -53,9 +54,8 @@ console.assert(myComposedFunction('mate') === 'hello mate');
 ## Future plans
 
 * 0.2 Add supporting function as predicate (done)
-* 0.3 Optimization
-* 0.4 AMD support
-* 0.5 Documentation
+* 0.3 Optimization (done)
+* 0.4 index.d.ts
 
 * ...
 

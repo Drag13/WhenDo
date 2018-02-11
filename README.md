@@ -44,7 +44,7 @@ demo();
 Result will be
 
   `start
-  predicate calculated`
+  predicate calculated
   trueFunction executed`
 
 ## TypeScript

@@ -4,13 +4,14 @@
 [![Coverage Status](https://coveralls.io/repos/github/Drag13/WhenDo/badge.svg?branch=coverage)](https://coveralls.io/github/Drag13/WhenDo?branch=coverage)
 [![npm](https://img.shields.io/npm/dt/@drag13/when-do.svg)](https://github.com/Drag13/WhenDo)
 [![GitHub license](https://img.shields.io/github/license/Drag13/WhenDo.svg)](https://github.com/Drag13/WhenDo/blob/master/LICENSE)
+[![TypeSCript](https://img.shields.io/badge/TypeScript-Ready-brightgreen.svg)](https://github.com/Drag13/WhenDo)
 
 ## Description
 
 Small function that can be used instead if-then statement in functional style programming with JavaScript.
 Takes predicate and one or two handlers. Returns new function that will check predicate and execute true/false handler.
 
-No external dependencies, uses ES6 inside.
+No external dependencies, uses ES6 inside, TypeSCript ready.
 
 ## Installation
 
@@ -18,32 +19,39 @@ No external dependencies, uses ES6 inside.
 
 ## Usage
 
+Usage is simple:
+WhenDo function returns new function that will be executed depending on predicate.
+You can pass params and expect result returning.
+
+
 ``` javascript
 const wd = require('@drag13/when-do');
-const myComposedFunction = wd(() => true, () => console.log('i am true'));
-myComposedFunction();
+const myComposedFunction = wd(() => true, (name) => `hello ${name}`);
+console.assert(myComposedFunction('mate') === 'hello mate');
 ```
 
-Output should be:
-
-  `i am true`
-
-Also you can pass a parameters that will be send to the handler
+If you pass predicate as function, it will not be invoked untill composed function call. 
 
 ``` javascript
 const wd = require('@drag13/when-do');
-const myComposedFunction = wd(() => true, (name) => console.log(`hello ${name}`));
-myComposedFunction('mate');
+const log = console.log;
+const demo = wd(()=> { log('predicate calculated');  return true;}, 
+                ()=> log('trueFunction executed'));
+log('start');
+demo();
 ```
 
-Output should be:
+Result will be
+  `start`
+  `predicate calculated`
+  `trueFunction executed`
 
-  `hello mate`
+## TypeScript
 
-If your function returns anything, this will be also returned. If you don't provide function to executed branch - null will be returned.
+Feel free to use TypeSCript
 
-``` javascript
-const wd = require('@drag13/when-do');
+``` typescript
+import * as whenDo from '@drag13/when-do';
 const myComposedFunction = wd(() => true, (name) => `hello ${name}`);
 console.assert(myComposedFunction('mate') === 'hello mate');
 ```
@@ -56,7 +64,8 @@ console.assert(myComposedFunction('mate') === 'hello mate');
 
 * 0.2 Add supporting function as predicate (done)
 * 0.3 Optimization (done)
-* 0.4 index.d.ts
+* 0.4 index.d.ts (done)
+* 0.5 a bit more documentation
 
 * ...
 

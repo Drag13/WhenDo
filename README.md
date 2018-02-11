@@ -1,10 +1,10 @@
 # WhenDo
 
-[![Build Status](https://travis-ci.org/Drag13/WhenDo.svg?branch=master)](https://travis-ci.org/Drag13/WhenDo)
 [![Coverage Status](https://coveralls.io/repos/github/Drag13/WhenDo/badge.svg?branch=coverage)](https://coveralls.io/github/Drag13/WhenDo?branch=coverage)
+[![Build Status](https://travis-ci.org/Drag13/WhenDo.svg?branch=master)](https://travis-ci.org/Drag13/WhenDo)
 [![npm](https://img.shields.io/npm/dt/@drag13/when-do.svg)](https://github.com/Drag13/WhenDo)
-[![GitHub license](https://img.shields.io/github/license/Drag13/WhenDo.svg)](https://github.com/Drag13/WhenDo/blob/master/LICENSE)
 [![TypeSCript](https://img.shields.io/badge/TypeScript-Ready-brightgreen.svg)](https://github.com/Drag13/WhenDo)
+[![GitHub license](https://img.shields.io/github/license/Drag13/WhenDo.svg)](https://github.com/Drag13/WhenDo/blob/master/LICENSE)
 
 ## Description
 
@@ -42,6 +42,7 @@ demo();
 ```
 
 Result will be
+
   `start`
 
   `predicate calculated`
@@ -50,7 +51,7 @@ Result will be
 
 ## TypeScript
 
-Feel free to use TypeSCript
+Feel free to use with TypeSCript
 
 ``` typescript
 import * as whenDo from '@drag13/when-do';

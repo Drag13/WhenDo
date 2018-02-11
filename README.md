@@ -11,7 +11,7 @@
 Small function that can be used instead if-then statement in functional style programming with JavaScript.
 Takes predicate and one or two handlers. Returns new function that will check predicate and execute true/false handler.
 
-No external dependencies, uses ES6 inside, TypeSCript ready.
+No external dependencies, uses ES6 inside, TypeScript ready.
 
 ## Installation
 
@@ -43,7 +43,9 @@ demo();
 
 Result will be
   `start`
+
   `predicate calculated`
+
   `trueFunction executed`
 
 ## TypeScript
@@ -62,14 +64,8 @@ console.assert(myComposedFunction('mate') === 'hello mate');
 
 ## Future plans
 
-* 0.2 Add supporting function as predicate (done)
-* 0.3 Optimization (done)
-* 0.4 index.d.ts (done)
-* 0.5 a bit more documentation
-
-* ...
-
-* 1.0.0 Release.
+* 1.0 Release
+* 1.1 ...
 
 ## Contributing
 

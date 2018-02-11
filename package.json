@@ -1,8 +1,9 @@
 {
   "name": "@drag13/when-do",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Small function that can be used instead if-then statement in functional style programming with JavaScript",
   "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "scripts": {
     "test": "mocha --reporter spec",
     "cover": "node ./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"

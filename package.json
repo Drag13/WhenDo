@@ -1,6 +1,6 @@
 {
   "name": "@drag13/when-do",
-  "version": "0.4.5",
+  "version": "1.0.0",
   "description": "Small function that can be used instead if-then statement in functional style programming with JavaScript",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",

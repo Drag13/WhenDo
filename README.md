@@ -8,8 +8,7 @@
 
 ## Description
 
-Small function that can be used instead if-then statement in functional style programming with JavaScript.
-Takes predicate and one or two handlers. Returns new function that will check predicate and execute true/false handler.
+Small function that can be used instead of 'if-then' statement in functional style programming with JavaScript. Takes a predicate and one or two handlers. Returns new function that will check the predicate and execute a true/false handler.
 
 No external dependencies, uses ES6 inside, TypeScript ready.
 
@@ -19,10 +18,7 @@ No external dependencies, uses ES6 inside, TypeScript ready.
 
 ## Usage
 
-Usage is simple:
-WhenDo function returns new function that will be executed depending on predicate.
-You can pass params and expect result returning.
-
+Usage is simple: WhenDo function returns a new function that will be executed depending on a predicate. You can pass params and expect return result.
 
 ``` javascript
 const wd = require('@drag13/when-do');
@@ -30,12 +26,12 @@ const myComposedFunction = wd(() => true, (name) => `hello ${name}`);
 console.assert(myComposedFunction('mate') === 'hello mate');
 ```
 
-If you pass predicate as function, it will not be invoked untill composed function call. 
+If you pass a predicate as a function, it will not be invoked until composed function call is executed.
 
 ``` javascript
 const wd = require('@drag13/when-do');
 const log = console.log;
-const demo = wd(()=> { log('predicate calculated');  return true;}, 
+const demo = wd(()=> { log('predicate calculated');  return true;},
                 ()=> log('trueFunction executed'));
 log('start');
 demo();
@@ -51,7 +47,7 @@ Result will be
 
 ## TypeScript
 
-Feel free to use with TypeSCript
+Feel free to use it with TypeScript
 
 ``` typescript
 import * as whenDo from '@drag13/when-do';
@@ -70,5 +66,4 @@ console.assert(myComposedFunction('mate') === 'hello mate');
 
 ## Contributing
 
-Any bug fixing appreciated.
-If you want to add new functionality - welcome. But KISS it please.
+Any bug fixing is appreciated. If you want to add new functionality - you're welcome. But KISS it please.

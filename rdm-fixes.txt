@@ -1,9 +1,0 @@
-Small function that can be used instead of 'if-then' statement in functional style programming with JavaScript. Takes a predicate and one or two handlers. Returns new function that will check the predicate and execute a true/false handler.
-
-Usage is simple: WhenDo function returns a new function that will be executed depending on a predicate. You can pass params and expect return result.
-
-If you pass a predicate as a function, it will not be invoked until composed function call is executed.
-
-Feel free to use it with TypeSCript
-
-Any bug fixing is appreciated. If you want to add new functionality - you're welcome. But KISS it please.

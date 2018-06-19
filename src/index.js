@@ -41,7 +41,9 @@ function isFunction(func) {
  * @returns {function} 
  */
 function asFunc(func) {
-    return isFunction(func) ? func : () => null;
+    return isFunction(func) ? func : dupeFunc;
 }
+
+const dupeFunc = () => null;
 
 module.exports = whenDo;

@@ -45,6 +45,36 @@ Result will be
 
   `trueFunction executed`
 
+## React
+
+If you want to have if-then-else statement inside react - try this example
+
+```jsx
+import iftrue from '@drag13/when-do';
+
+render() {
+    return (
+        <div className="WhenDoExample">
+            {
+                iftrue(this.state.counter % 2,
+                    () => <div>Odd</div>,
+                    () => <div>Even</div>)()
+            }
+            <button onClick={() => this.setState({ counter: this.state.counter + 1 })}>CLICK</button>
+        </div>
+    );
+}
+
+```
+
+*Tip:* You can name WhenDo function whatever you want, just change name inside the import!
+
+```javascript
+import ifthenelse from '@drag13/when-do';
+import iftrue from '@drag13/when-do'
+
+```
+    
 ## TypeScript
 
 Feel free to use it with TypeScript
@@ -58,11 +88,6 @@ console.assert(myComposedFunction('mate') === 'hello mate');
 ## Tests
 
   `npm test`
-
-## Future plans
-
-* 1.0 Release
-* 1.1 ...
 
 ## Contributing
 

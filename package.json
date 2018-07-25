@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "test": "mocha --reporter spec",
-    "cover": "node ./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec tests/*",
+    "cover": "node ./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*",
     "build": "uglifyjs ./src/index.js --compress --mangle --output ./dist/index.min.js",
     "preversion": "npm run test",
     "version": "npm run build",

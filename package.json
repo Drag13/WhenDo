@@ -2,14 +2,20 @@
   "name": "@drag13/when-do",
   "version": "1.0.2",
   "description": "Small function that can be used instead if-then statement in functional style programming with JavaScript",
-  "main": "./src/index.min.js",
-  "types": "./src/index.d.ts",
+  "main": "./dist/index.min.js",
+  "types": "./dts/index.d.ts",
+  "files": [
+    "dist",
+    "dts",
+    "src",
+    "test"
+  ],
   "scripts": {
     "test": "mocha --reporter spec",
-    "cover": "node ./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*",
-    "bundle": "uglifyjs ./src/index.js --compress --mangle --output ./src/index.min.js",
+    "cover": "node ./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec tests/*",
+    "build": "uglifyjs ./src/index.js --compress --mangle --output ./dist/index.min.js",
     "preversion": "npm run test",
-    "version": "npm run bundle",
+    "version": "npm run build",
     "postversion": "git add . && git push --no-verify && git push --tags --no-verify"
   },
   "repository": {

@@ -43,7 +43,7 @@
     "chai-spies": "1.0.0",
     "coveralls": "3.0.4",
     "istanbul": "0.4.5",
-    "mocha": "6.1.4",
+    "mocha": "8.0.1",
     "uglify-es": "3.3.9"
   }
 }
